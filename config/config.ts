@@ -1,4 +1,9 @@
+const email = String(process.env.EMAIL);
+const password = String(process.env.PASSWORD);
+const fullname = String(process.env.FULLNAME);
 
-
-export const email = String(process.env.EMAIL);
-export const password = String(process.env.PASSWORD);
+export const adminUserConfig = {
+  email,
+  password,
+  fullname,
+};
