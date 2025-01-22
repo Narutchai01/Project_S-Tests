@@ -8,7 +8,7 @@ const config: PlaywrightTestConfig = {
     headless: true,
     screenshot: "only-on-failure",
     browserName: "chromium",
-    baseURL: "http://localhost:8080/api",
+    baseURL: "http://localhost:3380/api",
   },
 };
 
