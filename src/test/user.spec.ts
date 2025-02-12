@@ -7,6 +7,7 @@ test("UserRegister", async () => {
     fullname: UserConfig.fullname,
     email: UserConfig.email,
     password: UserConfig.password,
+    sensitive_skin: true,
   });
 
   expect(response.status).toBe(201);

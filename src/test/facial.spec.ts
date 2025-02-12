@@ -2,21 +2,22 @@ import { test, expect } from "@playwright/test";
 import FormData from "form-data";
 import { axiosInstance } from "../../lib/axiosInstace";
 import fs from "fs";
-import { facialConfig } from "../../config/config";
+import { facial } from "../../data/facial";
 
-test("createFacial", async ({ baseURL }) => {
+test("createFacial", async () => {
   const formData = new FormData();
 
   const filePath = "./assets/admin/33741.jpg";
   const file = fs.readFileSync(filePath);
 
-  formData.append("facial", facialConfig.facial);
-  formData.append("file", file, "33741.jpg");
-
+  formData.append("name", "Facial"); 
+  formData.append("file", file, "33741.jpg"); 
   const response = await axiosInstance.post(`/admin/facial`, formData, {
-    headers: formData.getHeaders(),
+    headers: {
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzczMDUzNTIsInVzZXJfaWQiOjF9.UycnQIEGCAt4kGsEPdZynD1ol_OGhZtNrngwdS1Qz78",
+    },
   });
-
   expect(response.status).toBe(201);
 });
 

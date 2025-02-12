@@ -2,22 +2,23 @@ import { test, expect } from "@playwright/test";
 import FormData from "form-data";
 import { axiosInstance } from "../../lib/axiosInstace";
 import fs from "fs";
-import { SkincareConfig } from "../../config/config";
+import { skincare } from "../../data/skincare";
 
-test("createSkincare", async ({ baseURL }) => {
+test("createSkincare", async () => {
   const formData = new FormData();
 
-  const filePath = "./assets/admin/33741.jpg";
+  const filePath = "./assets/admin/34420.jpg";
   const file = fs.readFileSync(filePath);
 
-  formData.append("name", SkincareConfig.skincare);
-  formData.append("description", SkincareConfig.description);
-  formData.append("file", file, "33741.jpg");
-
+  formData.append("name", "Skincare"); 
+  formData.append("description", "Summary"); 
+  formData.append("file", file, "34420.jpg"); 
   const response = await axiosInstance.post(`/admin/skincare`, formData, {
-    headers: formData.getHeaders(),
+    headers: {
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzczMDUzNTIsInVzZXJfaWQiOjF9.UycnQIEGCAt4kGsEPdZynD1ol_OGhZtNrngwdS1Qz77",
+    },
   });
-
   expect(response.status).toBe(201);
 });
 
