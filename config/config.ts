@@ -12,6 +12,6 @@ export const UserConfig = {
   email,
   password,
   fullname,
-  birthday: Date,
+  birthday: String,
   sensitive_skin: Boolean,
 };

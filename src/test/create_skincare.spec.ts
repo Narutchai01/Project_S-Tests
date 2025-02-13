@@ -8,7 +8,7 @@ test("createSkincare", async ({ baseURL }) => {
   test.slow();
   
   const skincareData = await axios.get(
-    "https://67acb8e13f5a4e1477dba002.mockapi.io/skincareData/skincare"
+    "https://67acb8e13f5a4e1477dba002.mockapi.io/Ucare/skincare"
   );
 
   const data = skincareData.data;
