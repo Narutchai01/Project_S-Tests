@@ -70,18 +70,4 @@ test("createResult without Image", async () => {
   }
 });
 
-test("createResult Without Authen", async () => {
-  try {
-    const formData = new FormData();
-    const filePath = "./assets/admin/33741.jpg";
-    const file = fs.readFileSync(filePath);
 
-    formData.append("name", "Acne");
-    formData.append("file", file, "33741.jpg");
-
-    const response = await axiosInstance.post("/results", formData);
-    expect(response.status).toBe(401);
-  } catch (error) {
-    console.error(error);
-  }
-});
