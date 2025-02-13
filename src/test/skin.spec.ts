@@ -15,7 +15,7 @@ test("createSkin", async () => {
   const response = await axiosInstance.post(`/admin/skin`, formData, {
     headers: {
       token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzczMDUzNTIsInVzZXJfaWQiOjF9.UycnQIEGCAt4kGsEPdZynD1ol_OGhZtNrngwdS1Qz79",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzczMDUzNTIsInVzZXJfaWQiOjF9.UycnQIEGCAt4kGsEPdZynD1ol_OGhZtNrngwdS1Qz70",
     },
   });
   expect(response.status).toBe(201);
