@@ -22,7 +22,7 @@ test("createAdmin", async ({ baseURL }) => {
   expect(response.status).toBe(201);
 });
 
-test("createAdmin with email ", async ({ baseURL }) => {
+test("createAdmin without email ", async ({ baseURL }) => {
   const formData = new FormData();
 
   const filePath = "./assets/admin/33741.jpg";
