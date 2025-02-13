@@ -25,7 +25,7 @@ test("UserLogin", async () => {
   expect(response.data).toHaveProperty("token");
 });
 
-test("UserRegister Blank", async () => {
+test("UserRegister emailBlank", async () => {
   const response = await axiosInstance.post(`/user/register`, {
     fullname: UserConfig.fullname,
     password: UserConfig.password,
