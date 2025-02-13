@@ -22,6 +22,26 @@ test("createAdmin", async ({ baseURL }) => {
   expect(response.status).toBe(201);
 });
 
+test("createAdmin with email ", async ({ baseURL }) => {
+  const formData = new FormData();
+
+  const filePath = "./assets/admin/33741.jpg";
+  const file = fs.readFileSync(filePath);
+
+  formData.append("fullname", adminUserConfig.fullname);
+  formData.append("email", adminUserConfig.email);
+  formData.append("password", adminUserConfig.password);
+  formData.append("file", file, "33741.jpg");
+
+  const response = await axiosInstance.post(`/admin/manage`, formData, {
+    headers: formData.getHeaders(),
+  });
+
+  expect(response.status).toBe(500);
+});
+
+
+
 test("getAdmins", async ({ request, baseURL }) => {
   const response = await request.get(`${baseURL}/admin/manage`);
 
@@ -31,7 +51,7 @@ test("getAdmins", async ({ request, baseURL }) => {
 });
 
 test("getAdmin", async ({ request, baseURL }) => {
-  const response = await request.get(`${baseURL}/admin/manage/21`);
+  const response = await request.get(`${baseURL}/admin/manage/2`);
 
   expect(response.status()).toBe(200);
 });
